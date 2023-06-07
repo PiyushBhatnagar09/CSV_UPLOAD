@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Custom css stylesheet -->
+    <link rel="stylesheet" href="/css/home.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- stylesheets to use NOTY for flash messages -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+
+    <title>File Uploader</title>
+</head>
+
+<body>
+    <div class="main">
+        <div class="container">
+            <!-- Heading of the page -->
+            <div class="heading">
+                <a href="/" style="text-decoration: none;">
+                    <h1 style="text-decoration: underline;" class="headingText">DISPLAY DATA FROM CSV TO TABLES FORMAT</h1>
+                </a>
+            </div>
+
+            <!-- Form to take input .csv file from user -->
+            <form class="habit-form" action="/upload" method="POST" enctype="multipart/form-data">
+
+                <div id="fileInput" class="mb-3" style="background-color: #0066b2;">
+                    <label for="formFileSm" class="form-label"
+                        style="color: white; font-size: 1rem; margin: 10px 20px;">Upload File</label>
+                    <input name="file" id="formFileSm" type="file" placeholder="Upload your CSV file"
+                        style="color: white; font-size: 1rem; margin: 20px 20px;width: 85%;" accept=".csv" required>
+                </div>
+
+                <div class="labelContainer">
+                    <button id="addButton" class="btn btn-success" type="submit">Upload</button>
+                </div>
+            </form>
+            <br>
+
+            <!-- The link of the page which shows the table content -->
+            <p id="head-view-table">CLICK YOUR FILE LINK TO VIEW TABLES</p>
+            <%=files.originalName%>
+
+            <!-- If no file is uploaded then showing that no file is there in the list, else showing the delete file option-->
+            <%if(files.length>0){%>
+                <% for(file of files){ %>
+
+                    <div class="listContainer">
+                        <div class="fileListRow">
+                            <div class="habitDsc">
+                                <a style="text-decoration: none;" class="habitShowAction"
+                                    href="/show/?file_id=<%= file._id %>&page=1">
+                                    <%=file.originalName%>
+                                </a>
+                            </div>
+
+                            <div>
+                                <a href="/delete/<%= file.file %>">
+                                    <button class="btn btn-danger" style="font-size: 0.8rem;">Delete</button>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+                <%} %>
+            <%}else{%>
+                <div style="margin-top: 50px; color: rgb(151, 151, 151);">
+                    <h3>There is No Files in your list.</h3>
+                </div>
+            <%}%>
+        </div>
+    </div>
+
+    <!-- using 'Noty' to use stylish flash messages -->
+    <script>
+        <% if(flash.success && flash.success.length>0) { %>
+            new Noty({
+                theme: 'relax',
+                text: "<%= flash.success %>",
+                type: 'success',
+                layout: 'topRight',
+                timeout: 1500
+            }).show();
+        <% } %>
+
+        <% if(flash.error && flash.error.length>0) { %>
+            new Noty({
+                theme: 'relax',
+                text: "<%= flash.error %>",
+                type: 'error',
+                layout: 'topRight',
+                timeout: 1500
+            }).show();
+        <% } %>
+    </script>
+</body>
+</html>
