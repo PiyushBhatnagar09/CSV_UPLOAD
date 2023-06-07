@@ -1,5 +1,7 @@
 This is a MERN stack developemnt project
 
+This project shows CSV file data in the form of clean tables and also give features to sort any column in ascending and descending order and also to search in the columns !!
+
 STEPS TO RUN CODE ON YOUR PC:-
 1. Install vscode, nodejs, mongodb
 
