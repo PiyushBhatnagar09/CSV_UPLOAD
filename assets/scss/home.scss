@@ -1,0 +1,16 @@
+// scss file for home.ejs
+
+body {
+    color: black;
+    background: url('https://newbt.org/wp-content/uploads/2019/01/AdobeStock_143798795.jpeg') no-repeat fixed right top;
+}
+h2 {
+    text-decoration: underline;
+}
+#file-container {
+    padding-left: 20px;
+}
+#head-view-table {
+    border-top: 1px solid black;
+    font-weight: 700;
+}
