@@ -8,6 +8,7 @@ const bodyParser = require("body-parser");
 
 //to convert scss files to css file
 // const sassMiddleware= require('node-sass-middleware');
+const MongoStore= require('connect-mongo');
 
 const expressLayouts= require('express-ejs-layouts'); //to use layouts in ejs file
 const session= require('express-session');
