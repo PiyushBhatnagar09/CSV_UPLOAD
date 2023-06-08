@@ -7,7 +7,7 @@ const db = require("./config/mongoose");
 const bodyParser = require("body-parser");
 
 //to convert scss files to css file
-const sassMiddleware= require('node-sass-middleware');
+// const sassMiddleware= require('node-sass-middleware');
 
 const expressLayouts= require('express-ejs-layouts'); //to use layouts in ejs file
 const session= require('express-session');
@@ -18,13 +18,14 @@ const customMware= require('./config/middleware'); //middleware for flash messag
 app.use(bodyParser.json());
 
 //telling the express app to use sass middleware before the server runs, so that we can convert scss file to css file
+/*
 app.use(sassMiddleware({
     src: './assets/scss',
     dest: './assets/css',
     debug: true,
     outputStyle: 'extended',
     prefix: '/css'
-}));
+}));*/
 
 //this is compulsary to inlcude
 app.use(express.urlencoded());
@@ -50,6 +51,15 @@ app.use(session({
     /*cookie: {
         maxAge: (1000*60*100) //after this time, cookie expires (milliseconds)
     },*/
+    store: MongoStore.create(
+        {
+            mongoUrl: 'mongodb+srv://pbpiyush34:piyushbhat@cluster0.6zttkel.mongodb.net/?retryWrites=true&w=majority',
+            autoRemove: 'disabled'
+        },
+        function(err) {
+            console.log(err, 'connect-mongodb setup ok');
+        }
+    )
 }));
 
 app.use(flash());

@@ -1,6 +1,6 @@
 // connecting to mongoose to get acccess to mongodb database
 const mongoose= require('mongoose');
-mongoose.connect(`mongodb://127.0.0.1/CSV_UPLOAD`);
+mongoose.connect(`mongodb+srv://pbpiyush34:piyushbhat@cluster0.6zttkel.mongodb.net/?retryWrites=true&w=majority`);
 
 // making connection
 const db= mongoose.connection;
