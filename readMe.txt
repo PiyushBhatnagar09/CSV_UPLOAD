@@ -3,7 +3,7 @@ https://csv-to-info.onrender.com/
 
 This project is basically about displaying the csv data into beautiful tables format in which user gets the feature to search rows according to any column value. User can also sort all the rows on the basis of any column just by clicking on the column header.
 
-![SITE-1 image](https://github.com/PiyushBhatnagar09/CSV_UPLOAD/blob/main/assets/images/1.jpeg)
+![site_image](https://github.com/PiyushBhatnagar09/CSV_UPLOAD/blob/main/assets/images/1.jpeg)
 
 STEPS TO RUN CODE ON YOUR PC:-
 1. Install vscode, nodejs, mongodb
