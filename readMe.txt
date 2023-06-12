@@ -1,5 +1,9 @@
-This is a MERN stack developemnt project
+This is a MERN stack developemnt project, link to access Project :-
 https://csv-to-info.onrender.com/
+
+This project is basically about displaying the csv data into beautiful tables format in which user gets the feature to search rows according to any column value. User can also sort all the rows on the basis of any column just by clicking on the column header.
+
+<img src="">
 
 STEPS TO RUN CODE ON YOUR PC:-
 1. Install vscode, nodejs, mongodb
